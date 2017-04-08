@@ -1,0 +1,23 @@
+doctype html
+html(lang="en")
+  head
+    block head
+      block title
+        title Title
+      block meta
+        meta(http-equiv="content-type", content="text/html; charset=UTF-8")
+        meta(name="description", content="")
+        meta(name="keywords", content="")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0")
+        link(rel="stylesheet", href="css/main.css", type="text/css")
+      block addhead
+  body
+    block header
+      include templates/_header
+    .site-content
+      block content
+    block footer
+      include templates/_footer
+    block scripts
+      script(type="text/javascript", src="js/jquery-3.2.0.min.js")
+      script(type="text/javascript", src="js/all.js")

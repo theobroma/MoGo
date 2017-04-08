@@ -1,0 +1,19 @@
+extends _layout
+mixin ximg(imgsrc)
+  .column.is-12-mobile.is-6-tablet.is-3-desktop
+    img(src=src=imgsrc alt="")
+block header
+  include templates/_header
+block content
+  .section
+    .container
+      h2 Hello
+      .columns.is-multiline
+        +ximg("img/prod-1.jpg")
+        +ximg("img/prod-2.jpg")
+        +ximg("img/prod-3.jpg")
+        +ximg("img/prod-4.jpg")
+        +ximg("img/prod-5.jpg")
+        +ximg("img/prod-6.jpg")
+        +ximg("img/prod-7.jpg")
+        +ximg("img/prod-8.jpg")

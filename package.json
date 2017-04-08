@@ -1,0 +1,39 @@
+{
+  "name": "Gulp-starter",
+  "version": "1.0.0",
+  "description": "**Gulp-starter** позволяет легко и быстро начать работу над проектом с использованием сборщика Gulp.",
+  "main": "gulpfile.js",
+  "devDependencies": {
+    "browser-sync": "2.18.8",
+    "gulp": "3.9.1",
+    "gulp-autoprefixer": "3.1.1",
+    "gulp-concat": "2.6.0",
+    "gulp-csso": "3.0.0",
+    "gulp-imagemin": "3.0.1",
+    "gulp-pug": "3.3.0",
+    "gulp-notify": "3.0.0",
+    "gulp-plumber": "1.1.0",
+    "gulp-sass": "3.1.0",
+    "gulp-sourcemaps": "2.5.1",
+    "gulp-uglify": "2.1.2",
+    "gulp-watch": "4.3.11",
+    "imagemin-pngquant": "5.0.0",
+    "rimraf": "2.5.3",
+    "run-sequence": "1.2.2"
+  },
+  "dependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theobroma/gulp-starter.git"
+  },
+  "keywords": [],
+  "author": "Sasha Syryi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theobroma/gulp-starter/issues"
+  },
+  "homepage": "https://github.com/theobroma/gulp-starter#readme"
+}
