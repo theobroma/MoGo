@@ -1,0 +1,46 @@
+//----------------------------------------
+//helper classes
+//----------------------------------------
+.break-word {
+    word-wrap: break-word;
+}
+.center {
+    text-align:center;
+}
+.hidden {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+.is-multiline {
+    flex-wrap: wrap;
+}
+//----------------------------------------
+//  placeholders
+//----------------------------------------
+%clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+%list-inline {
+    padding-left: 0;
+    list-style: none;
+    &>li {
+        display: inline-block;
+    }
+}
+%abs-center {
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+
+%flex {
+    @include from(d) {
+        display:flex;
+    }
+}

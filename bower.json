@@ -18,7 +18,6 @@
   "dependencies": {
     "font-awesome": "^4.7.0",
     "breakpoint-sass": "^2.7.1",
-    "breakpoint-slicer": "^2.0.0",
-    "bootstrap-sass": "^3.3.7"
+    "breakpoint-slicer": "^2.0.0"
   }
 }

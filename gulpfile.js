@@ -115,6 +115,12 @@ gulp.task('htmlBuild', function() {
     .pipe(gulp.dest(paths.dist))
 });
 
+//copy libraries
+gulp.task('libsBuild', function() {
+  return gulp.src(paths.src+'/libs/**/*.*')
+    .pipe(gulp.dest(paths.dist+'/libs/'))
+});
+
 /*
 # ===============================================
 # Отслеживание изменения файлов
@@ -135,6 +141,6 @@ gulp.task('watch', function() {
 
 gulp.task('compile', ['sass','pug','concat']);
 gulp.task('build', function(callback) {
-  runSequence('cleanBuildDir','compile',['jsBuild', 'cssBuild', 'fontsBuild', 'htmlBuild', 'imgBuild'], callback);
+  runSequence('cleanBuildDir','compile',['jsBuild', 'cssBuild', 'fontsBuild', 'htmlBuild', 'imgBuild','libsBuild'], callback);
 });
 gulp.task('default', ['compile','browser-sync','watch']);
