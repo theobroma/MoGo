@@ -16,6 +16,10 @@
     position: relative;
     padding-bottom: 3vw;
     margin:0;
+    margin-bottom:50px;
+    @include to(d) {
+        margin-bottom:4vw;
+    }
     &:after {
         content: '';
         position: absolute;
@@ -32,9 +36,10 @@
     margin-left: auto;
     margin-right: auto;
     font-size: 1.5rem;
-    padding-top:50px;
-    padding-bottom:100px;
-    @include v-padding();
+    margin-bottom:100px;
+    @include to(d) {
+        margin-bottom:4vw;
+    }
 }
 
 /*
@@ -68,15 +73,12 @@
 
 .block2 {
     background-color: $c-riptide;
-    & .inner {
-
-    }
     & .numbers-item {
         border:1px solid transparent;
         color:#fff;
         font-family: "Montserrat Bold";
-        padding-top:90px;
-        padding-bottom:90px;
+        padding-top:85px;
+        padding-bottom:85px;
         @include to(d) {
             padding-top:4vw;
             padding-bottom:4vw;
@@ -98,8 +100,43 @@
     }
     & .numbers-count{
         font-size: 7.2rem;
+        margin:0;
     }
     & .numbers-desc{
         font-size: 1.4rem;
+    }
+}
+
+.block3{
+    & .inner {
+        padding-top:110px;
+        padding-bottom:125px;
+        @include to(d) {
+            padding-top:4vw;
+            padding-bottom:4vw;
+        }
+    }
+    & .services {
+        padding: 0 4vw;
+        &-img{
+            position: absolute;
+            top: 5px;
+            left: 0;
+        }
+        &-item{
+            padding-left: 50px;
+            position: relative;
+            padding-bottom: 30px;
+        }
+        &-title{
+            font-family: "Montserrat Bold";
+            text-transform: uppercase;
+            font-size:1.4rem;
+        }
+        &-desc{
+            font-family: 'Roboto', sans-serif;
+            font-weight: normal;
+            color: #999999;
+        }
     }
 }
