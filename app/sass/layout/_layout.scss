@@ -15,6 +15,7 @@
     text-transform: uppercase;
     position: relative;
     padding-bottom: 3vw;
+    margin:0;
     &:after {
         content: '';
         position: absolute;
@@ -31,20 +32,74 @@
     margin-left: auto;
     margin-right: auto;
     font-size: 1.5rem;
+    padding-top:50px;
+    padding-bottom:100px;
+    @include v-padding();
 }
+
+/*
+# ===============================================
+# Block specific
+# ===============================================
+*/
 
 .block1{
     & .inner {
         padding-top:70px;
         padding-bottom:70px;
+        @include to(d) {
+            padding-top:4vw;
+            padding-bottom:4vw;
+        }
     }
     & .images {
         & > *{
-            padding-top: 20px;
+            @include to(t) {
+              padding-top: 20px;
+            }
         }
         &-item{
             color:red;
-            background-color: #95e1d3;
+            background-color: $c-riptide;
+            cursor: pointer;
         }
+    }
+}
+
+.block2 {
+    background-color: $c-riptide;
+    & .inner {
+
+    }
+    & .numbers-item {
+        border:1px solid transparent;
+        color:#fff;
+        font-family: "Montserrat Bold";
+        padding-top:90px;
+        padding-bottom:90px;
+        @include to(d) {
+            padding-top:4vw;
+            padding-bottom:4vw;
+        }
+        @include to(m) {
+            border-bottom: 1px solid rgba(255,255,255, 0.4);
+        }
+        @include from(t) {
+            border-right: 1px solid rgba(255,255,255, 0.4);
+        }
+        &.first {
+            border-left: 1px solid rgba(255,255,255, 0.4);
+        }
+        &.last {
+            @include to(m) {
+                border-right: 1px solid transparent;
+            }
+        }
+    }
+    & .numbers-count{
+        font-size: 7.2rem;
+    }
+    & .numbers-desc{
+        font-size: 1.4rem;
     }
 }

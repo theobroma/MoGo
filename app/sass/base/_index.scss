@@ -1,6 +1,8 @@
 @import "_variables.scss";
 @import "_mixins.scss";
 @import "_breakpoints";
-@import "_grid";
+@import "_general";
 @import "_typography";
 @import "_helpers";
+//Choose one
+@import "_bootstrap";

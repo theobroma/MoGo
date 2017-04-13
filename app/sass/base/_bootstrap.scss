@@ -1,0 +1,26 @@
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+/* =======================================================
+                Responsive 5 Columns Grid
+======================================================= */
+.col-lg-2-4{
+  @include make-lg-column(2.4)
+}
+.col-md-2-4{
+  @include make-md-column(2.4)
+}
+.col-sm-2-4{
+  @include make-sm-column(2.4)
+}
+
+//Container-md
+@media (min-width: 992px) {
+    .container-md {
+        width: 970px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container-md {
+        width: 1170px;
+    }
+}
