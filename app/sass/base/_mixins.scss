@@ -28,6 +28,8 @@
     transition: all .2s;
 }
 
+// Don't use it if root font size 10px(Bootstap)
+
 @function em($pixels, $context: 16) {
   @return #{$pixels/$context}em;
 }
@@ -35,7 +37,7 @@
 @function rem($pixels, $context: 16) {
   @return #{$pixels/$context}rem;
 }
-
+//
 @mixin debug-layout {
     outline:3px solid red;
     > * {

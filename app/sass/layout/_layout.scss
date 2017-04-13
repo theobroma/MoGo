@@ -3,21 +3,48 @@
 # Layout
 # ===============================================
 */
-.catalog-item {
-    figure {
-        margin:0;
-        @extend %flex;
-        flex-flow: column wrap;
+.sec-subtitle{
+    color:#000;
+    font-family: "KaushanScript Regular";
+    font-size: 2.4rem;
+}
+.sec-title{
+    color:#000;
+    font-family: "Montserrat Bold";
+    font-size: 3rem;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 3vw;
+    &:after {
+        content: '';
+        position: absolute;
+        height: 3px;
+        bottom: 0;
+        width: 7%;
+        left: 46%;
+        background-color: #f38181;
     }
 }
-.catalog-list {
-    & > .filter {
-        @extend %flex;
-        flex-direction: row;
-        justify-content:center;
-        li {
-            text-align: center;
-            margin: 1rem;
+.sec-desc{
+    color: #999;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.5rem;
+}
+
+.block1{
+    & .inner {
+        padding-top:70px;
+        padding-bottom:70px;
+    }
+    & .images {
+        & > *{
+            padding-top: 20px;
+        }
+        &-item{
+            color:red;
+            background-color: #95e1d3;
         }
     }
 }

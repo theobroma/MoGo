@@ -1,6 +1,9 @@
-/* @import "../../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss"; */
-
-
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+/*
+# ===============================================
+# Base CSS (base/_grid.scss)
+# ===============================================
+*/
 html {
   box-sizing: border-box;
 }
@@ -13,7 +16,7 @@ body {
     min-height: 100vh;           // Holy Grail Layout
     flex-flow: column nowrap;    // Holy Grail Layout
     color:#363636;
-    background-color: #f1f2f4;
+    background-color: $c-grey;
     font-family: "Roboto Slab";
     font-weight: 300;
     word-wrap: break-word;
@@ -27,11 +30,11 @@ body {
 }
 @include from(d) {
   .site-content {
-    flex-direction: row;          // Holy Grail Layout
+    //flex-direction: row;        // Holy Grail Layout
     flex: 1;                      // Holy Grail Layout
   }
 }
-
+// .img-responsive from Bootstrap is almost the same
 img {
     height: auto;
     max-width: 100%;
