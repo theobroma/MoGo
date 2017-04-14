@@ -1,0 +1,82 @@
+a:hover,a:focus{
+    text-decoration: none;
+    outline: none;
+}
+#accordion .panel{
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    margin-bottom: 15px;
+}
+
+#accordion .panel-default{
+    border:1px solid #ddd;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+#accordion .panel-heading{
+    padding: 0;
+}
+#accordion .panel-title a{
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 24px;
+    color: #000;
+    background: #fff;
+    border: none;
+    padding: 15px 20px 15px 60px;
+    position: relative;
+    transition: all 0.5s ease 0s;
+}
+#accordion .panel-title a.collapsed{
+    border-bottom-color: #ddd;
+    color: #888;
+}
+#accordion .panel-title a:before{
+    content: " ";
+    font-size: 18px;
+    height: 32px;
+    width: 32px;
+    position: absolute;
+    top: 20%;
+    left: 20px;
+    transition: all 0.3s ease 0s;
+}
+
+#accordion #headingOne .panel-title a:before{
+    background: url(/img/icons/services-photo-icon.png) no-repeat;
+}
+#accordion #headingTwo .panel-title a:before{
+    background: url(/img/icons/services-creativity-icon.png) no-repeat;
+}
+#accordion #headingThree .panel-title a:before{
+    background: url(/img/icons/services-web-icon.png) no-repeat;
+}
+
+
+
+#accordion .panel-title a:after{
+    content: "\f106";
+    font-family: 'FontAwesome';
+    font-size: 18px;
+    position: absolute;
+    top: 30%;
+    right: 20px;
+    transition: all 0.3s ease 0s;
+}
+#accordion .panel-title a.collapsed:after{
+    content: "\f107";
+}
+
+#accordion .panel-title{
+}
+
+
+#accordion .panel-body{
+    font-size: 15px;
+    color: #8c8c8c;
+    line-height: 25px;
+    border-top:1px solid #ddd;
+    padding: 14px 20px;
+}

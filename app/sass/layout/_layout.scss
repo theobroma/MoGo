@@ -5,7 +5,7 @@
 */
 .sec-subtitle{
     color:#000;
-    font-family: "KaushanScript Regular";
+    font-family: "KaushanScript";
     font-size: 2.4rem;
 }
 .sec-title{
@@ -137,6 +137,31 @@
             font-family: 'Roboto', sans-serif;
             font-weight: normal;
             color: #999999;
+        }
+    }
+}
+
+.block7 {
+    & .inner {
+        padding-top:100px;
+        padding-bottom:100px;
+        @include to(d) {
+            padding-top:4vw;
+            padding-bottom:4vw;
+        }
+    }
+    & .team {
+        margin-bottom:20px;
+        &-name{
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 1.4rem;
+            margin-top: 30px;
+        }
+        &-position{
+            font-family: 'Roboto', sans-serif;
+            color: #999999;
+            font-style: italic;
         }
     }
 }
