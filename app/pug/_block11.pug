@@ -1,0 +1,22 @@
+mixin ximg(imgsrc,name)
+  .col-xs-12.col-sm-12.col-md-6.clients-item
+    .col-xs-12.col-sm-12.col-md-3.clients-img
+      img( class="center-block"  src=imgsrc, alt="")
+    .col-xs-12.col-sm-12.col-md-9.clients-info
+      h3.clients-name matthew dix
+      span.clients-position Graphic Design
+      p.clients-desc Croissant tart apple pie cotton candy chupa chups gingerbread bonbon candy. Donut halvah ice cream donut gummi bears sesame snaps tiramisu.
+
+section#block11.block11
+  .container
+    .inner
+      .row.text-center
+        h4.sec-subtitle Happy Clients
+        h2.sec-title What people say
+        .sec-desc
+         | Topping lollipop jelly chupa chups biscuit powder. Candy icing gingerbread pudding danish sweet roll. Cupcake cake candy canes cotton candy tootsie roll cheesecake.Croissant gummies apple pie caramels soufflé candy canes tootsie.
+      .row.clients
+        +ximg("img/photo/client-1.png")
+        +ximg("img/photo/client-3.png")
+        +ximg("img/photo/client-2.png")
+        +ximg("img/photo/client-4.png")
