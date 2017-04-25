@@ -1,0 +1,116 @@
+.effect-jazz{
+    opacity: 1;
+    transform: rotate3d(0,0,1,0deg) scale3d(1,1,1);
+    overflow:hidden;
+    transition:  0.35s;
+    background: #333;
+    img{
+        transition: opacity 0.35s, transform 0.35s;
+    }
+    &:hover {
+        box-shadow: 0 20px 20px -20px rgba(0, 0, 0, 0.5);
+        img{
+            opacity: 0.7;
+            transform: scale3d(1.05,1.05,1);
+
+        }
+    }
+    figcaption {
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+.post{
+    max-width:360px;
+    margin-bottom:20px;
+    &-title{
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+        font-size: 1.4rem;
+        margin:0;
+        margin-bottom: 10px;
+        color: #333;
+    }
+    &-excerption{
+        font-family: "Roboto Light Italic",sans-serif;
+        font-size: 1.5rem;
+        color: #999999;
+    }
+    &-img{
+        position: relative;
+        max-width:380px;//relative to img max width
+        margin-bottom: 10px;
+    }
+    &-date{
+        position: absolute;
+        bottom: 3%;
+        left: -2%;
+        text-align:center;
+        background-color: #95e1d3;
+        color: #fff;
+        width: 60px;
+        height: 70px;
+
+    }
+    &-number{
+        margin:0;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 3rem;
+        font-weight: 700;
+    }
+    &-month{
+        margin:0;
+        font-family: "Roboto",sans-serif;
+        font-size: 1.5rem;
+    }
+    &-footer{
+        border-top:1px solid #e5e5e5;
+        padding-top:20px;
+        a {
+            cursor: pointer;
+            transition: color 0.15s ease-in-out 0s;
+            &:hover {
+                color: #635647;
+            }
+        }
+    }
+    &-views {
+        padding-left: 28px;
+        position: relative;
+        margin-right: 20px;
+        color: #999;
+        font-family: "Roboto",sans-serif;
+        font-size: 1.5rem;
+        &::before {
+            content: "";
+            left: 0;
+            width: 20px;
+            height: 11px;
+            background: url(../img/icons/view.svg) no-repeat;
+            position: absolute;
+            top: 5px;
+        }
+    }
+    &-comments {
+        padding-left: 28px;
+        position: relative;
+        margin-right: 20px;
+        color: #999;
+        font-family: "Roboto",sans-serif;
+        font-size: 1.5rem;
+        &::before {
+            content: "";
+            left: 0;
+            width: 16px;
+            height: 14px;
+            background: url(../img/icons/speech-bubble.svg) no-repeat;
+            position: absolute;
+            top: 5px;
+        }
+    }
+}
+

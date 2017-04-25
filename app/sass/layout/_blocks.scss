@@ -128,6 +128,9 @@
 
 .team-item-wrapper {
     transition: ease-out 0.5s;
+    position:relative;
+    overflow:hidden;
+    max-width:380px;
     &:hover {
         box-shadow: 0 3px 7px 0 rgba(0,0,0,.35), 7px 7px 0 0 #95e1d3;
         transform: translateY(-5px);
@@ -137,12 +140,38 @@
     background: linear-gradient(#f38181,#fce38a);
     position: absolute;
     width: 100%;
-    height: 445px;
+    height: 470px;
     top: 0;
     opacity: .9;
     display: none;
 }
 
+.team-soclinks {
+    width:100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align:center;
+    line-height:56px;
+    display:block;
+    font-size: 1.5em;
+    li {
+        display:inline-block;
+        margin-right:-6px;
+        a{
+            display:block;
+            background-color: #fce38a;
+            color: #f38181;
+            width: 56px;
+            height: 56px;
+            &:hover{
+                background-color: #f38181;
+                color:#fff;
+            }
+        }
+    }
+}
 .team-item{
     &:hover .team-overlay {
         display:block;
@@ -231,94 +260,5 @@
     }
     &-desc{
         color: #999;
-    }
-}
-.post{
-    max-width:360px;
-    margin-bottom:20px;
-    &-title{
-        font-family: 'Montserrat', sans-serif;
-        text-transform: uppercase;
-        font-size: 1.4rem;
-        margin:0;
-        margin-bottom: 10px;
-        color: #333;
-    }
-    &-excerption{
-        font-family: "Roboto Light Italic",sans-serif;
-        font-size: 1.5rem;
-        color: #999999;
-    }
-    &-img{
-        position: relative;
-        max-width:380px;//relative to img max width
-        margin-bottom: 10px;
-    }
-    &-date{
-        position: absolute;
-        bottom: 3%;
-        left: -2%;
-        text-align:center;
-        background-color: #95e1d3;
-        color: #fff;
-        width: 60px;
-        height: 70px;
-
-    }
-    &-number{
-        margin:0;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 3rem;
-        font-weight: 700;
-    }
-    &-month{
-        margin:0;
-        font-family: "Roboto",sans-serif;
-        font-size: 1.5rem;
-    }
-    &-footer{
-        border-top:1px solid #e5e5e5;
-        padding-top:20px;
-        a {
-            cursor: pointer;
-            transition: color 0.15s ease-in-out 0s;
-            &:hover {
-                color: #635647;
-            }
-        }
-    }
-    &-views {
-        padding-left: 28px;
-        position: relative;
-        margin-right: 20px;
-        color: #999;
-        font-family: "Roboto",sans-serif;
-        font-size: 1.5rem;
-        &::before {
-            content: "";
-            left: 0;
-            width: 20px;
-            height: 11px;
-            background: url(../img/icons/view.svg) no-repeat;
-            position: absolute;
-            top: 5px;
-        }
-    }
-    &-comments {
-        padding-left: 28px;
-        position: relative;
-        margin-right: 20px;
-        color: #999;
-        font-family: "Roboto",sans-serif;
-        font-size: 1.5rem;
-        &::before {
-            content: "";
-            left: 0;
-            width: 16px;
-            height: 14px;
-            background: url(../img/icons/speech-bubble.svg) no-repeat;
-            position: absolute;
-            top: 5px;
-        }
     }
 }
