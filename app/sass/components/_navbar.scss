@@ -1,0 +1,126 @@
+.mycollapse {
+    @include to(t) {
+        display:none;
+    }
+}
+.mycollapse.in{
+    display:block;
+}
+.mynavbar{
+    position: relative;
+    min-height:50px;
+    z-index:9999;
+}
+.mynavbar-header{
+    padding:30px;
+}
+.mynavbar-right{
+    @include from(d) {
+        position:relative;
+        float:right;
+    }
+}
+.mynavbar-collapse{
+    position: absolute;
+    left: 0;
+    width: 100%;
+}
+.mynavbar-nav{
+    li{
+        font-family: "Montserrat",Arial,sans-serif;
+        font-size:1.4rem;
+        line-height:2.2;
+        padding: 2px 20px;
+        text-transform:uppercase;
+        cursor: pointer;
+        text-align: center;
+        display:inline-block;
+        @include to(t) {
+            display: block;
+            border-bottom: 1px solid rgba(192,57,43,.5);
+            background-color: #ff8983;
+        }
+        @include from(d) {
+            & .active{
+                color: #fce38a;
+                border-bottom: 3px solid transparent;
+                border-top: 3px solid transparent;
+                border-bottom-color:#fce38a;
+            }
+        }
+
+        a{
+            color:#fff;
+            text-decoration: none;
+            border-bottom: 3px solid transparent;
+            border-top: 3px solid transparent;
+            transition: .3s ease-out;
+            display:block;
+            &:hover{
+                color: #fce38a;
+                border-bottom-color:#fce38a;
+            }
+            @include to(t){
+                &:hover{
+                    color: #c0392b;
+                    border-color:transparent;
+                }
+            }
+
+        }
+    }
+}
+.burger-menu{
+  display:none;
+  position:relative;
+  float:right;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  @include to(t) {
+    display: block;
+  }
+}
+.burger{
+  position: absolute;
+  background: rgba(256,256,256,1);
+  width: 100%;
+  height: 2px;
+  top: 50%;
+  right: 0;
+  margin-top: -5px;
+  opacity: 1;
+  &:before {
+      position: absolute;
+      background: rgba(256,256,256,1);
+      width: 50px;
+      height: 2px;
+      top: 20px;
+      content: "";
+      display: block;
+  }
+  &:after{
+    position: absolute;
+    background: rgba(256,256,256,1);
+    width: 50px;
+    height: 2px;
+    bottom: 20px;
+    content: "";
+    display: block;
+  }
+}
+
+.burger::after, .burger::before, .burger {
+  transition: all .3s ease-in-out;
+}
+.burger-menu.menu-on .burger::after{
+  transform: rotate(-45deg);
+  bottom: 0px;
+}
+.burger-menu.menu-on .burger::before{
+  transform: rotate(45deg);
+  top: 0px;
+}
+.burger-menu.menu-on .burger{
+ background: rgba(111,111,111,.0);
+}

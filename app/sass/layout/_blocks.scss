@@ -13,16 +13,50 @@
             padding-bottom:4vw;
         }
     }
-    & .images {
-        & > *{
-            @include to(t) {
-              margin-bottom:20px;
-            }
+}
+
+.about-us{
+    &-overlay-text{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        & > * {
+            display:block;
+            margin: 5px auto;
         }
-        &-item{
-            color:red;
-            background-color: $c-riptide;
-            cursor: pointer;
+    }
+    &-item{
+        cursor: pointer;
+        &:hover &-overlay{
+            display:block;
+        }
+        &-overlay{
+            background: linear-gradient(#f38181, #fce38a);
+            position: absolute;
+            width: 100%;
+            height: 250px;
+            top: 0;
+            opacity: .9;
+            display: none;
+            color:#fff;
+            font-family: "Montserrat";
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 1.8rem;
+            text-align:center;
+        }
+        &-wrapper{
+            margin:0 auto;
+            transition: ease-out 0.5s;
+            position: relative;
+            overflow: hidden;
+            max-width: 380px;
+            &:hover{
+                box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.35), 7px 7px 0 0 #95e1d3;
+                transform: translateY(-5px);
+            }
         }
     }
 }
