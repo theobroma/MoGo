@@ -135,6 +135,14 @@
     }
 }
 
+.block4{
+  position:relative;
+  background: url(../img/bg/bg-devices.jpg);
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
 .block7 {
     & .inner {
         padding-top:100px;
@@ -252,6 +260,14 @@
         font-family: "Roboto Light Italic",sans-serif;
         font-size: 1.5rem;
     }
+}
+//block11
+.block11{
+  position:relative;
+  background: url(../img/bg/bg-clients.jpg);
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
 }
 .clients{
     &-item{

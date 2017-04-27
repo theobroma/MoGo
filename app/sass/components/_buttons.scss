@@ -25,3 +25,29 @@
     display:flex;
     justify-content:center;
 }
+#toTop{
+    position: fixed;
+    right: 20px;//bottom add by js
+    background: rgba(149, 225, 221, 0.7);
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border: 1px solid #353535;
+    transition: all 0.4s ease;
+    &:hover{
+        background: rgba(149, 225, 221, 0.9);
+        i{
+            top:35%;
+        }
+    }
+    i{
+        position: absolute;
+        color:#353535;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 1.9rem;
+        transition: all 0.3s ease;
+        animation: toTopFromBottom 0.3s forwards;
+    }
+}
