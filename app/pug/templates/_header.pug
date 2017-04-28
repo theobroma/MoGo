@@ -1,22 +1,22 @@
 header#header.header.portion
-  p Header
   .container
     .row
       .col-xs-12
-        nav.mynavbar
+        nav.mynavbar.clearfix
           .mynavbar-header.clearfix
-            a.mynavbar-brand
+            a(href="#" class="mynavbar-brand")
+              | MoGo
             div.burger-menu
               span.burger
           .mynavbar-collapse.mycollapse
             ul.mynav.mynavbar-nav.mynavbar-right
+              li.active
+                a(href="#about") About
               li
-                a(href="#" class="active") About
+                a(href="#service") Service
               li
-                a(href="#") Service
+                a(href="#work") Work
               li
-                a(href="#") Work
+                a(href="#blog") Blog
               li
-                a(href="#") Blog
-              li
-                a(href="#") Contact
+                a(href="#contact") Contact

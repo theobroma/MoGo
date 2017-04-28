@@ -34,6 +34,7 @@
     cursor: pointer;
     border: 1px solid #353535;
     transition: all 0.4s ease;
+    opacity: 0;
     &:hover{
         background: rgba(149, 225, 221, 0.9);
         i{

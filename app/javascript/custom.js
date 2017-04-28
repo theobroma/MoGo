@@ -27,3 +27,38 @@ $(window).scroll(function(){                              // отслежива�
       $('#toTop').css('opacity','0.7').css('bottom','30px');
    }
 });
+
+
+//Waypoint navbar
+var $navLi = $('.mynavbar li');
+
+$('.tracked').waypoint(function(direction) {
+  var hash = $(this)[0].element.id;
+  $navLi.removeClass('active');
+  $.each($navLi,function() {
+    if ( $(this).children('a').attr('href').slice(1) == hash ){
+      $(this).addClass('active');
+    }
+  });
+},{
+  offset: '30%'
+});
+
+//Sticky navbar
+(function($, undefined){
+
+  var $navbar = $(".mynavbar"),
+      y_pos = $navbar.offset().top,
+      height = $navbar.height();
+
+  $(document).scroll(function(){
+    var scrollTop = $(this).scrollTop();
+
+    if (scrollTop > y_pos + height+300){
+      $navbar.addClass("mynavbar-fixed-top");
+    } else if (scrollTop <= y_pos){
+      $navbar.removeClass("mynavbar-fixed-top");
+    }
+  });
+
+})(jQuery, undefined);
