@@ -142,7 +142,37 @@
   background-attachment: fixed;
   background-size: cover;
 }
-
+.block6{
+    background-color: $c-grey;
+    & .inner {
+        padding:70px 0 ;
+    }
+}
+.slider-img{
+    max-width: 150px;
+    max-height: 150px;
+    border: 2px solid $c-riptide;
+    margin:0 auto 15px;
+}
+.slider-content{
+    font: italic 300 2.4rem/3.6rem Roboto,Arial,sans-serif;
+    color: #999;
+}
+.slider-author {
+    position:relative;
+    padding:0 0 0 6rem;
+    font: 400 2.4rem/3.6rem Kaushan,Arial,sans-serif;
+    color: #333;
+    &:before {
+        content: '';
+        position: absolute;
+        height: 3px;
+        bottom: 50%;
+        width: 50px;
+        left: 0;
+        background-color: #f38181;
+    }
+}
 .block7 {
     & .inner {
         padding-top:100px;

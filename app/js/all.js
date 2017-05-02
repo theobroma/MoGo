@@ -63,3 +63,28 @@ $('.tracked').waypoint(function(direction) {
 
 })(jQuery, undefined);
 
+
+//modal
+$( '#open-map-btn' ).click(function(event) {
+  event.preventDefault();
+  $('body').addClass('modal-open').css('padding-right','17px')
+  .append( '<div class="modal-backdrop fade in"></div>' );
+  $('.modal').addClass('in').css('display','block');
+});
+
+
+$( '.modal-close-btn' ).click(function(event) {
+  event.preventDefault();
+  $('body').removeClass('modal-open').css('padding-right','0');
+  $( '.modal-backdrop' ).remove();
+  $('.modal').removeClass('in').css('display','none');
+});
+
+//slider1
+$('#slider1').slick({
+  nextArrow: '<i class="fa fa-chevron-right custom-slick-next slick-arrow"></i>',
+  prevArrow: '<i class="fa fa-chevron-left custom-slick-prev slick-arrow"></i>',
+  infinite: true,
+  autoplay: true
+});
+

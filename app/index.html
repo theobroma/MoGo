@@ -13,7 +13,7 @@
     <header class="header portion" id="header">
       <div class="container">
         <div class="row">
-          <div class="col-xs-12">
+          <div class="col-xs-12 mynavbar-wrap">
             <nav class="mynavbar clearfix">
               <div class="mynavbar-header clearfix"><a class="mynavbar-brand" href="#">MoGo</a>
                 <div class="burger-menu"><span class="burger"></span></div>
@@ -33,11 +33,105 @@
       </div>
     </header>
     <main class="site-content">
+      <section class="block1 tracked" id="about">
+        <div class="container">
+          <div class="inner">
+            <div class="row text-center">
+              <h4 class="sec-subtitle">What we do</h4>
+              <h2 class="sec-title">Story About Us</h2>
+              <div class="sec-desc">Topping lollipop jelly chupa chups biscuit powder. Candy icing gingerbread pudding danish sweet roll. Cupcake cake candy canes cotton candy tootsie roll cheesecake.Croissant gummies apple pie caramels soufflé candy canes tootsie.</div>
+            </div>
+            <div class="row about-us">
+              <div class="col-xs-12 col-sm-12 col-md-4 item">
+                <figure class="about-us-item">
+                  <div class="about-us-item-wrapper"><img class="center-block" src="img/photo/pic-1.jpg" alt="">
+                    <div class="about-us-item-overlay">
+                      <div class="about-us-overlay-text"><img src="img/icons/about-users.png" alt=""><span>super team</span></div>
+                    </div>
+                  </div>
+                </figure>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-4 item">
+                <figure class="about-us-item">
+                  <div class="about-us-item-wrapper"><img class="center-block" src="img/photo/pic-2.jpg" alt="">
+                    <div class="about-us-item-overlay">
+                      <div class="about-us-overlay-text"><img src="img/icons/about-users.png" alt=""><span>super team</span></div>
+                    </div>
+                  </div>
+                </figure>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-4 item">
+                <figure class="about-us-item">
+                  <div class="about-us-item-wrapper"><img class="center-block" src="img/photo/pic-3.jpg" alt="">
+                    <div class="about-us-item-overlay">
+                      <div class="about-us-overlay-text"><img src="img/icons/about-users.png" alt=""><span>super team</span></div>
+                    </div>
+                  </div>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="block6" id="block6">
+        <div class="container">
+          <div class="inner">
+            <div id="slider1">
+              <div>
+                <div class="col-xs-12 col-sm-12 col-md-3"><img class="slider-img" src="img/photo/slider-1.jpg" alt=""></div>
+                <div class="col-xs-12 col-sm-12 col-md-9">
+                  <div class="slider-content">"Topping sesame snaps pie carrot cake macaroon croissant cake jujubes cookie. Marzipan tootsie roll soufflé chocolate I love. Bonbon I love wafer pie candy canes marshmallow. Cupcake jujubes croissant soufflé bear claw candy cupcake."</div>
+                  <div class="slider-author">John Doe</div>
+                </div>
+              </div>
+              <div>
+                <div class="col-xs-12 col-sm-12 col-md-3"><img class="slider-img" src="img/photo/slider-2.jpg" alt=""></div>
+                <div class="col-xs-12 col-sm-12 col-md-9">
+                  <div class="slider-content">"Topping sesame snaps pie carrot cake macaroon croissant cake jujubes cookie. Marzipan tootsie roll soufflé chocolate I love. Bonbon I love wafer pie candy canes marshmallow. Cupcake jujubes croissant soufflé bear claw candy cupcake."</div>
+                  <div class="slider-author">John Doe</div>
+                </div>
+              </div>
+              <div>
+                <div class="col-xs-12 col-sm-12 col-md-3"><img class="slider-img" src="img/photo/slider-3.jpg" alt=""></div>
+                <div class="col-xs-12 col-sm-12 col-md-9">
+                  <div class="slider-content">"Topping sesame snaps pie carrot cake macaroon croissant cake jujubes cookie. Marzipan tootsie roll soufflé chocolate I love. Bonbon I love wafer pie candy canes marshmallow. Cupcake jujubes croissant soufflé bear claw candy cupcake."</div>
+                  <div class="slider-author">John Doe</div>
+                </div>
+              </div>
+              <div>
+                <div class="col-xs-12 col-sm-12 col-md-3"><img class="slider-img" src="img/photo/slider-4.jpg" alt=""></div>
+                <div class="col-xs-12 col-sm-12 col-md-9">
+                  <div class="slider-content">"Topping sesame snaps pie carrot cake macaroon croissant cake jujubes cookie. Marzipan tootsie roll soufflé chocolate I love. Bonbon I love wafer pie candy canes marshmallow. Cupcake jujubes croissant soufflé bear claw candy cupcake."</div>
+                  <div class="slider-author">John Doe</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <section class="block13" id="open-map">
         <div class="container">
           <div class="inner">
             <div class="row text-center"><span><i class="fa fa-map-marker"></i></span>
-              <h3 class="open-map-link"><a href="" type="button">Open Map</a></h3>
+              <h3 class="open-map-link"><a href="" type="button" id="open-map-btn">Open Map</a></h3>
+              <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button class="close modal-close-btn" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="gridSystemModalLabel">Modal title</h4>
+                    </div>
+                    <div class="modal-body">
+                      <div class="embed-responsive embed-responsive-4by3">
+                        <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d7098.94326104394!2d78.0430654485247!3d27.172909818538997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1385710909804" width="560" height="450" frameborder="0" style="border:0;" allowfullscreen></iframe>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button class="btn btn-default modal-close-btn" type="button" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -143,6 +237,7 @@
     <script type="text/javascript" src="libs/bootstrap/bootstrap.min.js"></script>
     <script type="text/javascript" src="libs/waypoints/jquery.waypoints.min.js"></script>
     <script type="text/javascript" src="libs/countUp/countUp.min.js"></script>
+    <script type="text/javascript" src="libs/slick/slick.min.js"></script>
     <script type="text/javascript" src="js/all.js"></script>
   </body>
 </html>
