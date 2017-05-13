@@ -6,15 +6,6 @@
 .mycollapse.in{
     display:block;
 }
-.mynavbar{
-    position: relative;
-    min-height:50px;
-    z-index:999;
-    padding:5px 5px 5px 5px;
-    @include to(t) {
-        background: rgba(243,129,129,0.9);
-    }
-}
 .mynavbar-brand{
     color:#fff;
     font-size:2rem;
@@ -24,15 +15,25 @@
     }
 }
 
-.mynavbar-fixed-top{
+.mynavbar{
     position: fixed;
     right: 0;
     left: 0;
     top:0;
+    min-height:50px;
+    z-index:999;
+    padding:5px 5px 5px 5px;
     background: rgba(243,129,129,0.9);
     transition: .3s ease-out;
-    max-width:1170px;
+    /* transform: translateY(-100%); */
     margin:0 auto;
+    @include to(t) {
+        background: rgba(243,129,129,0.9);
+    }
+}
+
+.mynavbar-stick{
+    transform: translateY(0%);
 }
 .mynavbar-header{
     padding:0 30px;
@@ -164,4 +165,79 @@
 }
 .burger-menu.menu-on .burger{
  background: rgba(111,111,111,.0);
+}
+
+
+/*----------------------------------------------------------------------------*\
+  Headhesive Specific Styles
+/*----------------------------------------------------------------------------*/
+
+/**
+ * Headhesive element clone
+ * > `clone` class for the cloned element:
+ *
+ * @example
+ * var options = {
+ *   classes {
+ *     clone: 'banner--clone';
+ *   }
+ * }
+ */
+.banner--clone {
+
+  /* Required styles */
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+
+  /* Additional styles */
+  background: #c95a5d;
+
+  /* Translate -100% to move off screen */
+  -webkit-transform: translateY(-100%);
+      -ms-transform: translateY(-100%);
+          transform: translateY(-100%);
+
+  /* Animations */
+  -webkit-transition: all 300ms ease-in-out;
+     -moz-transition: all 300ms ease-in-out;
+          transition: all 300ms ease-in-out;
+
+}
+
+
+/**
+ * Headhesive stick
+ * > `stick` class for the cloned element:
+ *
+ * @example
+ * var options = {
+ *   classes {
+ *     stick: 'banner--stick';
+ *   }
+ * }
+ */
+.banner--stick {
+
+  /* Translate back to 0%; */
+  -webkit-transform: translateY(0%);
+      -ms-transform: translateY(0%);
+          transform: translateY(0%);
+}
+
+
+/**
+ * Headhesive unstick
+ * > `unstick` class for the cloned element:
+ *
+ * @example
+ * var options = {
+ *   classes {
+ *     unstick: 'banner--unstick';
+ *   }
+ * }
+ */
+.banner--unstick {
+  /* Not required to use, but could be useful to have */
 }

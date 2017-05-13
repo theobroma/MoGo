@@ -45,7 +45,7 @@ $('.tracked').waypoint(function(direction) {
 });
 
 //Sticky navbar
-(function($, undefined){
+/*(function($, undefined){
 
   var $navbar = $(".mynavbar"),
       y_pos = $navbar.offset().top,
@@ -55,14 +55,24 @@ $('.tracked').waypoint(function(direction) {
     var scrollTop = $(this).scrollTop();
 
     if (scrollTop > y_pos + height+300){
-      $navbar.addClass("mynavbar-fixed-top");
+      $navbar.addClass("mynavbar-stick");
     } else if (scrollTop <= y_pos){
-      $navbar.removeClass("mynavbar-fixed-top");
+      $navbar.removeClass("mynavbar-stick");
     }
   });
 
-})(jQuery, undefined);
+})(jQuery, undefined);*/
 
+
+//Headhesive
+
+// Options
+var options = {
+  offset: 500
+}
+
+// Create a new instance of Headhesive.js and pass in some options
+var header = new Headhesive('.mynavbar', options);
 
 //modal
 $( '#open-map-btn' ).click(function(event) {

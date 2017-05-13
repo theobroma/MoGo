@@ -16,7 +16,9 @@ jspm_packages
 
 # WebStorm
 .idea
-
+# SublimeText
+*.sublime-project
+*.sublime-workspace
 #Config
 .env
 
