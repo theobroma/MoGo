@@ -20,7 +20,7 @@ var gulp = require('gulp'),
 
 //Конфиг
 var paths = {
-  src: './app/',
+  src: './src/',
   out: './app/',
   dist: './dist/'
 }
