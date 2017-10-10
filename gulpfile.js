@@ -20,8 +20,7 @@ var gulp = require('gulp'),
 
 //Конфиг
 var paths = {
-  src: './src/',
-  out: './app/',
+  src: './app/',
   dist: './dist/'
 }
 
@@ -35,7 +34,7 @@ gulp.task('sass', function () {
         cascade: false
     }))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest(paths.out + '/css/'))
+    .pipe(gulp.dest(paths.src + '/css/'))
     .pipe(browserSync.stream())
     .pipe(notify("SASS Compiled"));
 });
@@ -44,7 +43,7 @@ gulp.task('pug', function () {
     return gulp.src([paths.src + 'pug/*.pug', '!' + paths.src + 'pug/_*.pug'])
     .pipe(plumber())
     .pipe(pug({pretty: true}))
-    .pipe(gulp.dest(paths.out))
+    .pipe(gulp.dest(paths.src))
     .pipe(browserSync.stream())
     .pipe(notify("Pug Compiled"));
 });
@@ -52,7 +51,7 @@ gulp.task('pug', function () {
 gulp.task('concat', function() {
   return gulp.src(paths.src+'/javascript/**/*.js')
     .pipe(concat('all.js'))
-    .pipe(gulp.dest(paths.out + '/js/'))
+    .pipe(gulp.dest(paths.src + '/js/'))
     .pipe(browserSync.stream())
     .pipe(notify("Scripts concatenated"));
 });
@@ -63,7 +62,7 @@ gulp.task('concat', function() {
 gulp.task("browser-sync", function() {
         browserSync.init(["css/*.css", "js/*.js","*.html"], {
             server: {
-                baseDir: paths.out
+                baseDir: paths.src
             }
         });
     });
@@ -91,7 +90,7 @@ gulp.task('imgBuild', function () {
 
 //minify css
 gulp.task('cssBuild', function () {
-    return gulp.src(paths.out + 'css/**/*')
+    return gulp.src(paths.src + 'css/**/*')
         .pipe(csso())
         .pipe(gulp.dest(paths.dist + 'css/'))
 });
