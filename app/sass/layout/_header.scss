@@ -5,7 +5,7 @@
   background-attachment: fixed;
   background-size: cover;
   min-height:750px;
-  @include debug-color;
+  //@include debug-color;
   & .container{
     @include to(t) {
         width:100%;

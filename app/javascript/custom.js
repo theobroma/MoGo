@@ -1,3 +1,5 @@
+//cash
+var $page = $('html, body');
 //burger menu
 $(".burger-menu").click(function () {
   $(this).toggleClass("menu-on");
@@ -13,7 +15,7 @@ $(document).scroll(function () {
 
 //scroll toTop
 $('#toTop').click(function () {
-  $('body').animate({
+  $page.animate({
     scrollTop: 0
   }, 1000);
   return false;
@@ -44,35 +46,16 @@ $('.tracked').waypoint(function(direction) {
   offset: '30%'
 });
 
-//Sticky navbar
-/*(function($, undefined){
-
-  var $navbar = $(".mynavbar"),
-      y_pos = $navbar.offset().top,
-      height = $navbar.height();
-
-  $(document).scroll(function(){
-    var scrollTop = $(this).scrollTop();
-
-    if (scrollTop > y_pos + height+300){
-      $navbar.addClass("mynavbar-stick");
-    } else if (scrollTop <= y_pos){
-      $navbar.removeClass("mynavbar-stick");
-    }
+//smooth scrolling
+$('a[href*="#"]').click(function() {
+  var href = $.attr(this, 'href');
+  $page.animate({
+      scrollTop: $(href).offset().top
+  }, 400, function () {
+      window.location.hash = href;
   });
-
-})(jQuery, undefined);*/
-
-
-//Headhesive
-
-// Options
-var options = {
-  offset: 500
-}
-
-// Create a new instance of Headhesive.js and pass in some options
-var header = new Headhesive('.mynavbar', options);
+  return false;
+});
 
 //modal
 $( '#open-map-btn' ).click(function(event) {

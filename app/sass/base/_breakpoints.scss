@@ -1,5 +1,5 @@
-@import "../../../bower_components/breakpoint-sass/stylesheets/_breakpoint.scss";
-@import "../../../bower_components/breakpoint-slicer/stylesheets/_breakpoint-slicer.sass";
+@import "../../../node_modules/breakpoint-sass/stylesheets/_breakpoint.scss";
+@import "../../../node_modules/breakpoint-slicer/stylesheets/_breakpoint-slicer.sass";
 $slicer-breakpoints: 0 768px 992px 1200px;
 $slicer-breakpoint-names: 'm' 't' 'd' 'w'
 
