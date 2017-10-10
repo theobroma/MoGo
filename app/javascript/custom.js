@@ -47,13 +47,14 @@ $('.tracked').waypoint(function(direction) {
 });
 
 //smooth scrolling
-$('a[href*="#"]').click(function() {
+$navLi.find("a").click(function() {
   var href = $.attr(this, 'href');
   $page.animate({
       scrollTop: $(href).offset().top
   }, 400, function () {
       window.location.hash = href;
   });
+  console.log($('a[href*="#"]'));
   return false;
 });
 

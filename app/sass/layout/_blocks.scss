@@ -136,16 +136,29 @@
 }
 
 .block4{
-  position:relative;
-  background: url(../img/bg/bg-devices.jpg);
-  background-position: center center;
-  background-attachment: fixed;
-  background-size: cover;
+    & .inner {
+        padding-top:110px;
+        padding-bottom:125px;
+        @include to(d) {
+            padding-top:4vw;
+            padding-bottom:4vw;
+        }
+    }
+    position:relative;
+    background: url(../img/bg/bg-devices.jpg);
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
 }
 .block6{
     background-color: $c-grey;
     & .inner {
-        padding:70px 0 ;
+        padding-top:70px;
+        padding-bottom:70px;
+        @include to(d) {
+            padding-top:4vw;
+            padding-bottom:4vw;
+        }
     }
 }
 .slider-img{
@@ -251,8 +264,28 @@
 }
 
 .block8 {
+    & .inner {
+        padding-top:70px;
+        padding-bottom:70px;
+        @include to(d) {
+            padding-top:4vw;
+            padding-bottom:4vw;
+        }
+    }
     background-color:$c-grey;
 }
+//block9
+.block9 {
+    & .inner {
+        padding-top:70px;
+        padding-bottom:70px;
+        @include to(d) {
+            padding-top:4vw;
+            padding-bottom:4vw;
+        }
+    }
+}
+
 .work-item {
     padding:0;
     &-wrap{
@@ -291,13 +324,22 @@
         font-size: 1.5rem;
     }
 }
+//end-of-block9
 //block11
 .block11{
-  position:relative;
-  background: url(../img/bg/bg-clients.jpg);
-  background-position: center center;
-  background-attachment: fixed;
-  background-size: cover;
+    & .inner {
+        padding-top:70px;
+        padding-bottom:70px;
+        @include to(d) {
+            padding-top:4vw;
+            padding-bottom:4vw;
+        }
+    }
+    position:relative;
+    background: url(../img/bg/bg-clients.jpg);
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
 }
 .clients{
     &-item{
@@ -343,21 +385,29 @@
     }
 }
 .block13{
-  position:relative;
-  background: url(../img/bg/bg-map.jpg);
-  background-position: center center;
-  background-size: cover;
-  color:$c-light-coral;
-  a{
+    & .inner {
+        padding-top:70px;
+        padding-bottom:70px;
+        @include to(d) {
+            padding-top:4vw;
+            padding-bottom:4vw;
+        }
+    }
+    position:relative;
+    background: url(../img/bg/bg-map.jpg);
+    background-position: center center;
+    background-size: cover;
     color:$c-light-coral;
-    text-decoration:none;
-  }
-  & .inner {
-    padding: 30px 0 50px 0;
-  }
-  span {
-    font-size:2rem;
-  }
+    a{
+        color:$c-light-coral;
+        text-decoration:none;
+    }
+    & .inner {
+        padding: 30px 0 50px 0;
+    }
+    span {
+        font-size:2rem;
+    }
 }
 .open-map-link{
     text-transform:uppercase;

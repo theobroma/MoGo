@@ -27,3 +27,8 @@ jspm_packages
 
 # Ignore "dist" folder
 /dist
+
+#ignore production files
+/app/css
+/app/js
+/app/index.html
