@@ -27,7 +27,6 @@ var paths = {
   src: './app/',
   dist: './dist/'
 }
-console.log(ftpConfig);
 //Компиляция SASS
 gulp.task('sass', function () {
    return gulp.src([paths.src + 'sass/**/*.{sass,scss}', '!' + paths.src + 'sass/**/_*.{sass,scss}'])
@@ -53,7 +52,10 @@ gulp.task('pug', function () {
 });
 //Конкатанация JavaScript
 gulp.task('concat', function() {
-  return gulp.src(paths.src+'/javascript/**/*.js')
+  return gulp.src([
+      "app/javascript/libs.js",// always first
+       paths.src+'/javascript/**/*.js'
+    ])
     .pipe(concat('all.js'))
     .pipe(gulp.dest(paths.src + '/js/'))
     .pipe(browserSync.stream())
@@ -70,6 +72,31 @@ gulp.task("browser-sync", function() {
             }
         });
     });
+/*
+# ===============================================
+# Vendors
+# ===============================================
+*/
+gulp.task('libsCSS', function () {
+    return gulp.src([
+      "app/libs/animate/animate.css"
+      ])
+      .pipe(concat('libs.css'))
+      .pipe(gulp.dest(paths.src + 'css/'))
+});
+
+gulp.task('libsJS', function () {
+    return gulp.src([
+        "app/libs/jquery/jquery-3.2.0.min.js",
+        "app/libs/bootstrap/bootstrap.min.js",
+        "app/libs/waypoints/jquery.waypoints.min.js",
+        "app/libs/countUp/countUp.min.js",
+        "app/libs/slick/slick.min.js"
+      ])
+      .pipe(concat('libs.js'))
+      .pipe(gulp.dest(paths.src + 'javascript/'))
+});
+
 /*
 # ===============================================
 # Создание билда проэкта
@@ -95,14 +122,17 @@ gulp.task('imgBuild', function () {
 //minify css
 gulp.task('cssBuild', function () {
     return gulp.src(paths.src + 'css/**/*')
-        .pipe(csso({ comments: false }))
-        .pipe(gulp.dest(paths.dist + 'css/'))
+      .pipe(concat('all.css'))
+      .pipe(csso({ comments: false }))
+      .pipe(gulp.dest(paths.dist + 'css/'))
 });
 //minify js
 gulp.task('jsBuild', function() {
   return gulp.src(paths.src+'/javascript/**/*.js')
     .pipe(concat('all.js'))
-    .pipe(uglify())
+    .pipe(uglify({
+      compress: {hoist_funs: false, hoist_vars: false}// need for correct files order
+    }))
     .pipe(gulp.dest(paths.dist + '/js/'))
 });
 
@@ -152,7 +182,8 @@ gulp.task('deploy', function() {
   'dist/.htaccess',
   ];
   return gulp.src(globs, {buffer: false})
-  .pipe(conn.dest('/public_html'));
+    .pipe( conn.newer('/public_html')) // only upload newer files
+    .pipe(conn.dest('/public_html'));
 
 });
 
@@ -174,7 +205,7 @@ gulp.task('watch', function() {
 # ===============================================
 */
 
-gulp.task('compile', ['sass','pug','concat']);
+gulp.task('compile', ['sass','pug','concat','libsCSS','libsJS']);
 gulp.task('build', function(callback) {
   runSequence('cleanBuildDir','compile',['jsBuild', 'cssBuild', 'fontsBuild', 'htmlBuild', 'imgBuild','libsBuild'], callback);
 });

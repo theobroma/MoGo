@@ -54,7 +54,6 @@ $navLi.find("a").click(function() {
   }, 400, function () {
       window.location.hash = href;
   });
-  console.log($('a[href*="#"]'));
   return false;
 });
 
