@@ -147,12 +147,6 @@ gulp.task('htmlBuild', function() {
   return gulp.src(paths.src+'/*.html')
     .pipe(gulp.dest(paths.dist))
 });
-
-//copy libraries
-gulp.task('libsBuild', function() {
-  return gulp.src(paths.src+'/libs/**/*.*')
-    .pipe(gulp.dest(paths.dist+'/libs/'))
-});
 /*
 # ===============================================
 # Архивация в Zip
@@ -207,7 +201,7 @@ gulp.task('watch', function() {
 
 gulp.task('compile', ['sass','pug','concat','libsCSS','libsJS']);
 gulp.task('build', function(callback) {
-  runSequence('cleanBuildDir','compile',['jsBuild', 'cssBuild', 'fontsBuild', 'htmlBuild', 'imgBuild','libsBuild'], callback);
+  runSequence('cleanBuildDir','compile',['jsBuild', 'cssBuild', 'fontsBuild', 'htmlBuild', 'imgBuild'], callback);
 });
 gulp.task('zip', function(callback) {
   runSequence('build','buildZip',callback);
