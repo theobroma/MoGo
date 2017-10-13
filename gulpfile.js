@@ -95,7 +95,7 @@ gulp.task('imgBuild', function () {
 //minify css
 gulp.task('cssBuild', function () {
     return gulp.src(paths.src + 'css/**/*')
-        .pipe(csso())
+        .pipe(csso({ comments: false }))
         .pipe(gulp.dest(paths.dist + 'css/'))
 });
 //minify js
