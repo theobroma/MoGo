@@ -1,6 +1,7 @@
 const config = {
   host:      'host',
   user:      'username',
-  password:  'password'
+  password:  'password',
+  path:      '/public_html'
 }
 module.exports = config;

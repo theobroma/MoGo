@@ -103,7 +103,7 @@ gulp.task('libsJS', function () {
 # ===============================================
 */
 
-//clean build folder
+//clean all build folder
 gulp.task('cleanBuildDir', function (cb) {
     rimraf(paths.dist, cb);
 });
@@ -122,17 +122,13 @@ gulp.task('imgBuild', function () {
 //minify css
 gulp.task('cssBuild', function () {
     return gulp.src(paths.src + 'css/**/*')
-      .pipe(concat('all.css'))
       .pipe(csso({ comments: false }))
-      .pipe(gulp.dest(paths.dist + 'css/'))
+      .pipe(gulp.dest(paths.dist + '/css/'))
 });
 //minify js
 gulp.task('jsBuild', function() {
-  return gulp.src(paths.src+'/javascript/**/*.js')
-    .pipe(concat('all.js'))
-    .pipe(uglify({
-      compress: {hoist_funs: false, hoist_vars: false}// need for correct files order
-    }))
+  return gulp.src(paths.src+'/js/**/*.js')
+    //no uglify cause of incorrect file order
     .pipe(gulp.dest(paths.dist + '/js/'))
 });
 
@@ -162,8 +158,6 @@ gulp.task('buildZip', function() {
 # Deploy
 # ===============================================
 */
-gulp.task('deploy', function() {
-
   var conn = ftp.create({
     host:      ftpConfig.host,
     user:      ftpConfig.user,
@@ -171,15 +165,24 @@ gulp.task('deploy', function() {
     log: gutil.log
   });
 
+gulp.task('deploy', function() {
   var globs = [
-  'dist/**',
-  'dist/.htaccess',
+    'dist/**',
+    '!dist/fonts',
+    '!dist/img'
   ];
   return gulp.src(globs, {buffer: false})
-    .pipe( conn.newer('/public_html')) // only upload newer files
-    .pipe(conn.dest('/public_html'));
-
+    .pipe(conn.dest(ftpConfig.path))
+    .pipe(notify({
+      message: 'Finished deployment.',
+      onLast: true
+    }));
 });
+//clean remote ftp directory
+gulp.task('deploy:clean', function(cb) {
+    conn.rmdir(ftpConfig.path, cb)
+})
+
 
 /*
 # ===============================================
@@ -203,6 +206,11 @@ gulp.task('compile', ['sass','pug','concat','libsCSS','libsJS']);
 gulp.task('build', function(callback) {
   runSequence('cleanBuildDir','compile',['jsBuild', 'cssBuild', 'fontsBuild', 'htmlBuild', 'imgBuild'], callback);
 });
+//build just main parts(exclude fonts and images)
+gulp.task('main-build', function(callback) {
+  runSequence('compile',['jsBuild', 'cssBuild','htmlBuild'], callback);
+});
+
 gulp.task('zip', function(callback) {
   runSequence('build','buildZip',callback);
 });
