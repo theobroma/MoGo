@@ -16,7 +16,8 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     imagemin = require('gulp-imagemin'),
     pngquant = require('imagemin-pngquant'),
-    csso = require('gulp-csso');
+    csso = require('gulp-csso'),
+    zip = require('gulp-zip');
 
 //Конфиг
 var paths = {
@@ -119,6 +120,17 @@ gulp.task('libsBuild', function() {
   return gulp.src(paths.src+'/libs/**/*.*')
     .pipe(gulp.dest(paths.dist+'/libs/'))
 });
+/*
+# ===============================================
+# Архивация в Zip
+# ===============================================
+*/
+gulp.task('buildZip', function() {
+  return gulp.src(paths.dist+'/**/*.*')
+    .pipe(zip('archive.zip'))
+    .pipe(gulp.dest('dist'))
+});
+
 
 /*
 # ===============================================
