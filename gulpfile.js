@@ -17,14 +17,17 @@ var gulp = require('gulp'),
     imagemin = require('gulp-imagemin'),
     pngquant = require('imagemin-pngquant'),
     csso = require('gulp-csso'),
-    zip = require('gulp-zip');
+    zip = require('gulp-zip'),
+    gutil = require('gulp-util'),
+    ftp = require('vinyl-ftp'),
+    ftpConfig = require('./ftpConfig');
 
 //Конфиг
 var paths = {
   src: './app/',
   dist: './dist/'
 }
-
+console.log(ftpConfig);
 //Компиляция SASS
 gulp.task('sass', function () {
    return gulp.src([paths.src + 'sass/**/*.{sass,scss}', '!' + paths.src + 'sass/**/_*.{sass,scss}'])
@@ -130,7 +133,28 @@ gulp.task('buildZip', function() {
     .pipe(zip('archive.zip'))
     .pipe(gulp.dest('dist'))
 });
+/*
+# ===============================================
+# Deploy
+# ===============================================
+*/
+gulp.task('deploy', function() {
 
+  var conn = ftp.create({
+    host:      ftpConfig.host,
+    user:      ftpConfig.user,
+    password:  ftpConfig.password,
+    log: gutil.log
+  });
+
+  var globs = [
+  'dist/**',
+  'dist/.htaccess',
+  ];
+  return gulp.src(globs, {buffer: false})
+  .pipe(conn.dest('/public_html'));
+
+});
 
 /*
 # ===============================================

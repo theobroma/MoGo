@@ -32,3 +32,5 @@ jspm_packages
 /app/css
 /app/js
 /app/index.html
+#ignore ftp credentials
+ftpConfig.js
