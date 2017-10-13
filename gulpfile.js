@@ -178,4 +178,7 @@ gulp.task('compile', ['sass','pug','concat']);
 gulp.task('build', function(callback) {
   runSequence('cleanBuildDir','compile',['jsBuild', 'cssBuild', 'fontsBuild', 'htmlBuild', 'imgBuild','libsBuild'], callback);
 });
+gulp.task('zip', function(callback) {
+  runSequence('build','buildZip',callback);
+});
 gulp.task('default', ['compile','browser-sync','watch']);
