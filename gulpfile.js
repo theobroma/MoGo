@@ -96,7 +96,7 @@ gulp.task('libsJS', function () {
         "app/libs/countUp/countUp.min.js",
         "app/libs/slick/slick.min.js"
       ])
-      .pipe(uglify())
+      .pipe(gulpif(!isDevelopment, uglify()))
       .pipe(concat('libs.js'))
       .pipe(gulp.dest(paths.src + 'js/'))
 });
