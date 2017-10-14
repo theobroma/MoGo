@@ -13,6 +13,7 @@ var gulp = require('gulp'),
     browserSync = require('browser-sync').create(),
     // plugins for build
     concat = require('gulp-concat'),
+    gulpif = require('gulp-if'),
     uglify = require('gulp-uglify'),
     imagemin = require('gulp-imagemin'),
     mozjpeg = require('imagemin-mozjpeg'),
@@ -21,8 +22,10 @@ var gulp = require('gulp'),
     zip = require('gulp-zip'),
     gutil = require('gulp-util'),
     ftp = require('vinyl-ftp'),
-    ftpConfig = require('./ftpConfig');
+    ftpConfig = require('./ftpConfig'),
+    isDevelopment = require('./gulp/util/env');
 
+console.log(isDevelopment);
 //Конфиг
 var paths = {
   src: './app/',
@@ -38,6 +41,7 @@ gulp.task('sass', function () {
         cascade: false
     }))
     .pipe(sourcemaps.write())
+    .pipe(gulpif(!isDevelopment, csso({ comments: false })))
     .pipe(gulp.dest(paths.src + '/css/'))
     .pipe(browserSync.stream())
     .pipe(notify("SASS Compiled"));
@@ -46,7 +50,7 @@ gulp.task('sass', function () {
 gulp.task('pug', function () {
     return gulp.src([paths.src + 'pug/*.pug', '!' + paths.src + 'pug/_*.pug'])
     .pipe(plumber())
-    .pipe(pug({pretty: true}))
+    .pipe(pug({pretty: isDevelopment}))
     .pipe(gulp.dest(paths.src))
     .pipe(browserSync.stream())
     .pipe(notify("Pug Compiled"));
@@ -55,6 +59,7 @@ gulp.task('pug', function () {
 gulp.task('concat', function() {
   return gulp.src(paths.src+'/javascript/**/*.js')
     .pipe(concat('all.js'))
+    .pipe(gulpif(!isDevelopment, uglify()))
     .pipe(gulp.dest(paths.src + '/js/'))
     .pipe(browserSync.stream())
     .pipe(notify("Scripts concatenated"));
@@ -108,16 +113,6 @@ gulp.task('cleanBuildDir', function (cb) {
 });
 
 //minify images
-gulp.task('imgBuildOld', function () {
-    return gulp.src(paths.src + 'img/**/*')
-        .pipe(imagemin({
-            progressive: true,
-            svgoPlugins: [{removeViewBox: false}],
-            use: [pngquant()]
-        }))
-        .pipe(gulp.dest(paths.dist + 'img'))
-});
-
 gulp.task('imgBuild', function () {
   return gulp.src(paths.src + 'img/**/*')
     .pipe(imagemin([
@@ -131,16 +126,14 @@ gulp.task('imgBuild', function () {
     .pipe(gulp.dest(paths.dist + 'img'))
 });
 
-//minify css
+//copy css
 gulp.task('cssBuild', function () {
     return gulp.src(paths.src + 'css/**/*')
-      .pipe(csso({ comments: false }))
       .pipe(gulp.dest(paths.dist + '/css/'))
 });
-//minify js
+//copy js
 gulp.task('jsBuild', function() {
   return gulp.src(paths.src+'/js/**/*.js')
-    //no uglify cause of incorrect file order
     .pipe(gulp.dest(paths.dist + '/js/'))
 });
 
