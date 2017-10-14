@@ -15,6 +15,7 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
     imagemin = require('gulp-imagemin'),
+    mozjpeg = require('imagemin-mozjpeg'),
     pngquant = require('imagemin-pngquant'),
     csso = require('gulp-csso'),
     zip = require('gulp-zip'),
@@ -122,13 +123,10 @@ gulp.task('imgBuild', function () {
     .pipe(imagemin([
       imagemin.gifsicle({interlaced: true}),
       imagemin.jpegtran({progressive: true}),
-      imagemin.optipng({optimizationLevel: 5}),
-      imagemin.svgo({
-        plugins: [
-          {removeViewBox: true},
-          {cleanupIDs: false}
-        ]
-      })
+      mozjpeg({progressive: true}),
+      imagemin.optipng({optimizationLevel: 7}),
+      pngquant({quality: '85-100'}),
+      imagemin.svgo({plugins: [{removeViewBox: true}]})
     ]))
     .pipe(gulp.dest(paths.dist + 'img'))
 });
