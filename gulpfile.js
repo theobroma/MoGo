@@ -84,6 +84,7 @@ gulp.task('libsCSS', function () {
     return gulp.src([
       "app/libs/animate/animate.css"
       ])
+      .pipe(gulpif(!isDevelopment, csso({ comments: false })))
       .pipe(concat('libs.css'))
       .pipe(gulp.dest(paths.src + 'css/'))
 });
