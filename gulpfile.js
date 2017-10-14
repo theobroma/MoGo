@@ -52,10 +52,7 @@ gulp.task('pug', function () {
 });
 //Конкатанация JavaScript
 gulp.task('concat', function() {
-  return gulp.src([
-      "app/javascript/libs.js",// always first
-       paths.src+'/javascript/**/*.js'
-    ])
+  return gulp.src(paths.src+'/javascript/**/*.js')
     .pipe(concat('all.js'))
     .pipe(gulp.dest(paths.src + '/js/'))
     .pipe(browserSync.stream())
@@ -93,8 +90,9 @@ gulp.task('libsJS', function () {
         "app/libs/countUp/countUp.min.js",
         "app/libs/slick/slick.min.js"
       ])
+      .pipe(uglify())
       .pipe(concat('libs.js'))
-      .pipe(gulp.dest(paths.src + 'javascript/'))
+      .pipe(gulp.dest(paths.src + 'js/'))
 });
 
 /*
@@ -109,13 +107,29 @@ gulp.task('cleanBuildDir', function (cb) {
 });
 
 //minify images
-gulp.task('imgBuild', function () {
+gulp.task('imgBuildOld', function () {
     return gulp.src(paths.src + 'img/**/*')
         .pipe(imagemin({
             progressive: true,
             svgoPlugins: [{removeViewBox: false}],
             use: [pngquant()]
         }))
+        .pipe(gulp.dest(paths.dist + 'img'))
+});
+
+gulp.task('imgBuild', function () {
+    return gulp.src(paths.src + 'img/**/*')
+        .pipe(imagemin([
+          imagemin.gifsicle({interlaced: true}),
+          imagemin.jpegtran({progressive: true}),
+          imagemin.optipng({optimizationLevel: 5}),
+          imagemin.svgo({
+            plugins: [
+              {removeViewBox: true},
+              {cleanupIDs: false}
+            ]
+          })
+        ]))
         .pipe(gulp.dest(paths.dist + 'img'))
 });
 
@@ -162,14 +176,13 @@ gulp.task('buildZip', function() {
     host:      ftpConfig.host,
     user:      ftpConfig.user,
     password:  ftpConfig.password,
+    parallel: 3,
     log: gutil.log
   });
 
 gulp.task('deploy', function() {
   var globs = [
-    'dist/**',
-    '!dist/fonts',
-    '!dist/img'
+    'dist/**'
   ];
   return gulp.src(globs, {buffer: false})
     .pipe(conn.dest(ftpConfig.path))
