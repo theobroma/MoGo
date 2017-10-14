@@ -118,19 +118,19 @@ gulp.task('imgBuildOld', function () {
 });
 
 gulp.task('imgBuild', function () {
-    return gulp.src(paths.src + 'img/**/*')
-        .pipe(imagemin([
-          imagemin.gifsicle({interlaced: true}),
-          imagemin.jpegtran({progressive: true}),
-          imagemin.optipng({optimizationLevel: 5}),
-          imagemin.svgo({
-            plugins: [
-              {removeViewBox: true},
-              {cleanupIDs: false}
-            ]
-          })
-        ]))
-        .pipe(gulp.dest(paths.dist + 'img'))
+  return gulp.src(paths.src + 'img/**/*')
+    .pipe(imagemin([
+      imagemin.gifsicle({interlaced: true}),
+      imagemin.jpegtran({progressive: true}),
+      imagemin.optipng({optimizationLevel: 5}),
+      imagemin.svgo({
+        plugins: [
+          {removeViewBox: true},
+          {cleanupIDs: false}
+        ]
+      })
+    ]))
+    .pipe(gulp.dest(paths.dist + 'img'))
 });
 
 //minify css
