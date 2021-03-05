@@ -25,8 +25,8 @@ jspm_packages
 # Ignore Map Files
 *.map
 
-# Ignore "dist" folder
-/dist
+# Stop ignore "dist" folder.Needed for github-pages
+# /dist
 
 #ignore production files
 /app/css
