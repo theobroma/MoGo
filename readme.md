@@ -1,1 +1,0 @@
-# MoGo psd to html conversion
